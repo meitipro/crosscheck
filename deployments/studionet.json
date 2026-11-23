@@ -1,0 +1,245 @@
+{
+  "network": "studionet",
+  "chain_id": 61999,
+  "contract": "0x85178f82BFE9c50C6934d0262E68863cD1Eaf63e",
+  "explorer": "https://explorer-studio.genlayer.com/address/0x85178f82BFE9c50C6934d0262E68863cD1Eaf63e",
+  "source_sha256": "828268488b259861aa45cc9f1c6be311ffaac54ae38f7a5a7572470daefcb617",
+  "constructor": {},
+  "accounts": {
+    "funder": "0x8139aF4da0217aEae838dfde822ec305EaB84534",
+    "solver": "0x11D1143C1C4050Fb6dB340a29B3e90021A333b14",
+    "solver2": "0xF0F1c707e12950847ED82a01661FE5C26150b575",
+    "stranger": "0x3AE4Ef542c90AddB7D0b4ACbFbC87F47a7801cE4"
+  },
+  "balances": {
+    "funder_before": "3699764115999986474",
+    "solver_before": "1000000000000000000",
+    "funder_after": "3899685487999995768",
+    "solver_after": "1099715299999997531"
+  },
+  "owed": {
+    "funder": "100000000000000000",
+    "solver": "100000000000000000"
+  },
+  "held_after": "0",
+  "steps": [
+    {
+      "step": "deploy",
+      "method": "deploy",
+      "from": "0x8139aF4da0217aEae838dfde822ec305EaB84534",
+      "tx": "0x204b072f3e098e9f55f89c69d1a1ddb10aa25a73f294de8278137173a2d88b4c",
+      "status": "FINALIZED",
+      "ok": true,
+      "refusal": "",
+      "address": "0x85178f82BFE9c50C6934d0262E68863cD1Eaf63e"
+    },
+    {
+      "step": "question 0 opened: two Wikipedia articles and a gazetteer page, quorum 2, 0.1 GEN",
+      "method": "open",
+      "from": "0x8139aF4da0217aEae838dfde822ec305EaB84534",
+      "tx": "0xe530a6b0f163fb33413c7acaf54a644d95727e36ccf4643759bf6185e30ed09c",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "the funder answers its own question",
+      "method": "answer",
+      "from": "0x8139aF4da0217aEae838dfde822ec305EaB84534",
+      "tx": "0xf7b94258cd9d67192bbf880a98a62d95b408cb350805202e257b42e7d73d556f",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] the funder cannot answer its own question"
+    },
+    {
+      "step": "question 0: three sources fetched and judged, two state it",
+      "method": "answer",
+      "from": "0x11D1143C1C4050Fb6dB340a29B3e90021A333b14",
+      "tx": "0x05de28281a8f6d498b9c0ec9ca2db00963ef63afe95db00d7e3fe8116ecaa0ba",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "an answer on a question that already paid",
+      "method": "answer",
+      "from": "0xF0F1c707e12950847ED82a01661FE5C26150b575",
+      "tx": "0xa4f6382c089366109a9ec57728153483d125999f1f9644a0ba355fef166d5c0a",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] this question is paid; only an open one takes an answer"
+    },
+    {
+      "step": "question 1 opened: the same two articles and an almanac that says 1899",
+      "method": "open",
+      "from": "0x8139aF4da0217aEae838dfde822ec305EaB84534",
+      "tx": "0x30fcb82d8b1e073cb92f906e4e079e1c8d6604cbc148c9c1c4990480daea88fe",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "question 1: two sources state it, one contradicts it: recorded, not paid",
+      "method": "answer",
+      "from": "0x11D1143C1C4050Fb6dB340a29B3e90021A333b14",
+      "tx": "0xdeac78a4e56961945f65508e80f16f638dc20ff9e3acc8b32aff04b06b5a22bc",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "a second answer from the same solver",
+      "method": "answer",
+      "from": "0x11D1143C1C4050Fb6dB340a29B3e90021A333b14",
+      "tx": "0xda761e85d60b4924850aef98f9081f25f8c1e6d837469123d0996ea6ac70d4e3",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] a solver answers once per question"
+    },
+    {
+      "step": "a settlement while question 1 is still open",
+      "method": "settle",
+      "from": "0x3AE4Ef542c90AddB7D0b4ACbFbC87F47a7801cE4",
+      "tx": "0xdaa75b40b9bf735e454c64a999b50f6bc0a8e4c8529e0c0f3de03dea4c234fb9",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] the question is open until 2026-11-23T21:49:20Z"
+    },
+    {
+      "step": "an answer after question 1's deadline",
+      "method": "answer",
+      "from": "0xF0F1c707e12950847ED82a01661FE5C26150b575",
+      "tx": "0x62b429f29a90f426f40e82579af6d6c7cb16beb0270f5a56bb7b6b58c9ee3540",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] the deadline passed at 2026-11-23T21:49:20Z; a late answer is never read"
+    },
+    {
+      "step": "question 1 settled: nobody was paid, the bounty returns to the funder",
+      "method": "settle",
+      "from": "0x3AE4Ef542c90AddB7D0b4ACbFbC87F47a7801cE4",
+      "tx": "0x5d37c58947cf82b3f1c3dbd60b73978c319947edac070620e6a22760cb1698d3",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    }
+  ],
+  "questions": [
+    {
+      "accepted_claim": "The Eiffel Tower was completed in 1889.",
+      "attempts": 1,
+      "bounty": "100000000000000000",
+      "deadline": "2026-11-23T21:47:13Z",
+      "funder": "0x8139aF4da0217aEae838dfde822ec305EaB84534",
+      "opened_at": "2026-11-23T21:22:13Z",
+      "paid_to": "solver",
+      "quorum": 2,
+      "settled_at": "2026-11-23T21:22:58Z",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Eiffel_Tower",
+        "https://fr.wikipedia.org/wiki/Tour_Eiffel",
+        "https://raw.githubusercontent.com/meitipro/crosscheck/master/demo/sources/gazetteer.md"
+      ],
+      "status": "paid",
+      "text": "In what year was the Eiffel Tower completed?",
+      "winner": "0x11D1143C1C4050Fb6dB340a29B3e90021A333b14"
+    },
+    {
+      "accepted_claim": "",
+      "attempts": 1,
+      "bounty": "100000000000000000",
+      "deadline": "2026-11-23T21:49:20Z",
+      "funder": "0x8139aF4da0217aEae838dfde822ec305EaB84534",
+      "opened_at": "2026-11-23T21:24:20Z",
+      "paid_to": "funder",
+      "quorum": 2,
+      "settled_at": "2026-11-23T21:50:02Z",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Eiffel_Tower",
+        "https://fr.wikipedia.org/wiki/Tour_Eiffel",
+        "https://raw.githubusercontent.com/meitipro/crosscheck/master/demo/sources/almanac_1899.md"
+      ],
+      "status": "refunded",
+      "text": "In what year was the Eiffel Tower completed?",
+      "winner": ""
+    }
+  ],
+  "attempts": [
+    {
+      "attempts": [
+        {
+          "at": "2026-11-23T21:22:58Z",
+          "claim": "The Eiffel Tower was completed in 1889.",
+          "contradicts": 0,
+          "id": 0,
+          "labels": [
+            "states",
+            "states",
+            "silent"
+          ],
+          "question": 0,
+          "reason_is_leader_supplied": true,
+          "solver": "0x11D1143C1C4050Fb6dB340a29B3e90021A333b14",
+          "stated": 2,
+          "unreadable": 0,
+          "verdict": "accepted",
+          "why": "The page explicitly lists the Eiffel Tower as completed on 31 March 1889."
+        }
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Eiffel_Tower",
+        "https://fr.wikipedia.org/wiki/Tour_Eiffel",
+        "https://raw.githubusercontent.com/meitipro/crosscheck/master/demo/sources/gazetteer.md"
+      ],
+      "text": "In what year was the Eiffel Tower completed?"
+    },
+    {
+      "attempts": [
+        {
+          "at": "2026-11-23T21:24:37Z",
+          "claim": "The Eiffel Tower was completed in 1889.",
+          "contradicts": 1,
+          "id": 1,
+          "labels": [
+            "states",
+            "states",
+            "contradicts"
+          ],
+          "question": 1,
+          "reason_is_leader_supplied": true,
+          "solver": "0x11D1143C1C4050Fb6dB340a29B3e90021A333b14",
+          "stated": 2,
+          "unreadable": 0,
+          "verdict": "rejected",
+          "why": "The page states 'Completed 31 March 1889' and says it was built from 1887 to 1889, confirming the 1889 completion year."
+        }
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Eiffel_Tower",
+        "https://fr.wikipedia.org/wiki/Tour_Eiffel",
+        "https://raw.githubusercontent.com/meitipro/crosscheck/master/demo/sources/almanac_1899.md"
+      ],
+      "text": "In what year was the Eiffel Tower completed?"
+    }
+  ],
+  "payouts": {
+    "funder": [
+      {
+        "tx": "0x0aff8377020caa67218b8a146a649dcdb0c5485f68c1b5a57eb7e828858d9f0c",
+        "value": "100000000000000000",
+        "created_at": "2026-11-23T21:50:38.364450+00:00"
+      }
+    ],
+    "solver": [
+      {
+        "tx": "0x76a8d522ab1ef2a1439fdb6ff7b8c5950a5b7aab366b6cf47fd9a943f9ac56b8",
+        "value": "100000000000000000",
+        "created_at": "2026-11-23T21:24:26.988809+00:00"
+      }
+    ]
+  },
+  "received": {
+    "funder": "100000000000000000",
+    "solver": "100000000000000000"
+  }
+}
