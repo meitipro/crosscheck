@@ -7,3 +7,4 @@ artifacts/
 venv/
 .DS_Store
 artifacts_demo.log
+scripts/node/node_modules/
